@@ -71,7 +71,7 @@ function main(param1FromHost, param2FromHost) {
     }
 
     if (1 >= 1) {
-        debug('1 >= 0');
+        debug('1 >= 1');
     }
 
     if (1 <= 10) {
