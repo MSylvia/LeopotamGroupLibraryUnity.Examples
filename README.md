@@ -2,7 +2,7 @@
 
 Examples of [LeopotamGroup library for unity3d engine](https://github.com/Leopotam/LeopotamGroupLibraryUnity/).
 
-#### Unity tested version: 5.4.3.
+#### Unity tested version: 5.5.0f3.
 
 #### This repository uses main library code as git submodule, dont forget to init submodules after clone: "git submodule update --init"
 
