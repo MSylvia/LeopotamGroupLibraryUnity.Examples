@@ -1,4 +1,5 @@
-﻿using LeopotamGroup.Tutorials;
+﻿using LeopotamGroup.Common;
+using LeopotamGroup.Tutorials;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.TutorialsTest {
@@ -8,10 +9,10 @@ namespace LeopotamGroup.Examples.TutorialsTest {
             // you can reset it for all scenes with calling
             // TutorialManager.Instance.ClearAllData (true), or
             // for current screen with calling TutorialManager.Instance.SetAll (false)
-            TutorialManager.Instance.SetAll (false);
+            Singleton.Get<TutorialManager> ().SetAll (false);
 
             // Initiate tutorial sequence.
-            TutorialManager.Instance.RaiseNextBit ();
+            Singleton.Get<TutorialManager> ().RaiseNextBit ();
         }
     }
 }

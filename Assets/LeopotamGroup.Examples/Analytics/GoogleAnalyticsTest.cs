@@ -1,24 +1,26 @@
 ﻿using LeopotamGroup.Analytics;
+using LeopotamGroup.Common;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.Analytics.GoogleAnalyticsTest {
     public class GoogleAnalyticsTest : MonoBehaviour {
         void OnGUI () {
-            if (!GoogleAnalyticsManager.Instance.IsInited) {
+            var ga = Singleton.Get<GoogleAnalyticsManager> ();
+            if (!ga.IsInited) {
                 GUILayout.Label ("Fill TrackerID field for GoogleAnalytics object first!");
                 return;
             }
 
-            GUILayout.Label ("Device identifier: " + GoogleAnalyticsManager.Instance.DeviceHash);
+            GUILayout.Label ("Device identifier: " + ga.DeviceHash);
 
             if (GUILayout.Button ("Track 'Screen Test opened'")) {
-                GoogleAnalyticsManager.Instance.TrackScreen ("Test");
+                ga.TrackScreen ("Test");
             }
             if (GUILayout.Button ("Track 'Item.001 purchased'")) {
-                GoogleAnalyticsManager.Instance.TrackEvent ("Purchases", "Item.001");
+                ga.TrackEvent ("Purchases", "Item.001");
             }
             if (GUILayout.Button ("Track 'Exception raised'")) {
-                GoogleAnalyticsManager.Instance.TrackException ("OMG, app crashed", true);
+                ga.TrackException ("OMG, app crashed", true);
             }
         }
     }

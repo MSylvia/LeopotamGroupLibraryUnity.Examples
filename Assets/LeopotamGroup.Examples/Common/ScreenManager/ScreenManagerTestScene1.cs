@@ -12,7 +12,7 @@ namespace LeopotamGroup.Examples.Common.ScreenManagerTest {
                 string.Format ("Add both scenes ('{0}', '{1}') from this folder to BuildSettings and press button",
                     Scene1Name, Scene2Name));
             if (GUILayout.Button ("Go to second scene")) {
-                ScreenManager.Instance.NavigateTo (Scene2Name, true);
+                Singleton.Get<ScreenManager> ().NavigateTo (Scene2Name, true);
             }
         }
     }

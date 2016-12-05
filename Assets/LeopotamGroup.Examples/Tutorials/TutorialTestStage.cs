@@ -1,4 +1,5 @@
-﻿using LeopotamGroup.Tutorials;
+﻿using LeopotamGroup.Common;
+using LeopotamGroup.Tutorials;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.TutorialsTest {
@@ -12,7 +13,7 @@ namespace LeopotamGroup.Examples.TutorialsTest {
         void OnGUI () {
             GUILayout.Label ((Content ?? "No content"));
             if (GUILayout.Button ("Move to next stage")) {
-                TutorialManager.Instance.RaiseNextBit ();
+                Singleton.Get<TutorialManager> ().RaiseNextBit ();
             }
         }
     }
