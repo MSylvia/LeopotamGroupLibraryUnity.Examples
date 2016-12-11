@@ -1,4 +1,5 @@
 ﻿using LeopotamGroup.Common;
+using LeopotamGroup.Math;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.Common.Extensions {
@@ -21,7 +22,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
                 -1234567,
                 1234567890
             }) {
-                Debug.LogFormat ("{0}.ToShortString = {1}", item, item.ToShortString ());
+                Debug.LogFormat ("{0}.ToStringWithSuffix = {1}", item, item.ToStringWithSuffix ());
             }
         }
 
@@ -35,7 +36,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
                 0.12345f,
                 0.00005f
             }) {
-                Debug.LogFormat ("{0:0.#####}.ToNormalizedString = {1}", item, item.ToNormalizedString ());
+                Debug.LogFormat ("{0:0.#####}.ToStringFast = {1}", item, item.ToStringFast ());
             }
         }
 

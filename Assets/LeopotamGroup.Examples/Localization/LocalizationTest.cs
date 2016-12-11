@@ -1,5 +1,6 @@
 ﻿using LeopotamGroup.Localization;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace LeopotamGroup.Examples.LocalizationTest {
     public class LocalizationTest : MonoBehaviour {
@@ -23,6 +24,11 @@ namespace LeopotamGroup.Examples.LocalizationTest {
                 }
             }
             GUILayout.Label (string.Format ("\n<b>Localization for '{0}' is '{1}'</b>", TestKey, Localizer.Get (TestKey)));
+        }
+
+        [Preserve]
+        void OnLocalize() {
+            Debug.Log ("Language changed to " + Localizer.Language);
         }
     }
 }
