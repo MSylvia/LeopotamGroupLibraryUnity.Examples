@@ -14,7 +14,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
         }
 
         void IntToShortStringTest () {
-            foreach (var item in new [] {
+            foreach (var item in new[] {
                 0,
                 123,
                 1234,
@@ -27,7 +27,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
         }
 
         void FloatToNormalizedStringTest () {
-            foreach (var item in new [] {
+            foreach (var item in new[] {
                 0f,
                 123f,
                 123.45678f,
@@ -41,7 +41,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
         }
 
         void StringToFloatTest () {
-            foreach (var item in new [] {
+            foreach (var item in new[] {
                 "0",
                 "123",
                 "123.45678",
@@ -55,7 +55,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
         }
 
         void StringToFloatUncheckedTest () {
-            foreach (var item in new [] {
+            foreach (var item in new[] {
                 "0",
                 "123",
                 "123.45678",
@@ -64,12 +64,13 @@ namespace LeopotamGroup.Examples.Common.Extensions {
                 "0.12345",
                 "0.00005"
             }) {
-                Debug.LogFormat ("{0}.ToFloatUnchecked(invariant culture, GC optimized, [digits | '.' | '-']) = {1:0.#####}", item, item.ToFloatUnchecked ());
+                Debug.LogFormat ("{0}.ToFloatUnchecked(invariant culture, GC optimized, [digits | '.' | '-']) = {1:0.#####}", item,
+                                 item.ToFloatUnchecked ());
             }
         }
 
         void StringToColor24Test () {
-            foreach (var item in new [] {
+            foreach (var item in new[] {
                 "000000",
                 "ffffff",
                 "ff0000",
@@ -82,7 +83,7 @@ namespace LeopotamGroup.Examples.Common.Extensions {
         }
 
         void StringToColor32Test () {
-            foreach (var item in new [] {
+            foreach (var item in new[] {
                 "00000000",
                 "ffffffff",
                 "ff0000ff",

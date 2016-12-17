@@ -4,7 +4,7 @@ namespace LeopotamGroup.Examples.MobileTest {
     public class MobileTest : MonoBehaviour {
         void OnGUI () {
             GUILayout.Label ("On android if you will press 'back' button - app will be closed.\n" +
-            "At editor / standalone app you can press 'Escape' key with same result.");
+                             "At editor / standalone app you can press 'Escape' key with same result.");
         }
 
         #region UI callbacks

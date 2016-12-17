@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using LeopotamGroup.Common;
 using LeopotamGroup.Serialization;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.SerializationTest {
@@ -17,7 +18,7 @@ namespace LeopotamGroup.Examples.SerializationTest {
 
             public override string ToString () {
                 return string.Format ("[StructType: ID = {0}, IgnoredInt = {1}, StructString = {2}, RenamedString = {3}]",
-                    ID, IgnoredInt, StructString ?? "<null>", RenamedString ?? "<null>");
+                                      ID, IgnoredInt, StructString ?? "<null>", RenamedString ?? "<null>");
             }
         }
 
@@ -54,7 +55,7 @@ namespace LeopotamGroup.Examples.SerializationTest {
                     data = "<null>";
                 }
                 return string.Format ("[TestClass: ID = {0}, Type = {1}, IgnoredString = {2}, Data = {3}]",
-                    ID, Type, IgnoredString ?? "<null>", data);
+                                      ID, Type, IgnoredString ?? "<null>", data);
             }
         }
 
@@ -63,15 +64,13 @@ namespace LeopotamGroup.Examples.SerializationTest {
         }
 
         void JsonSerializationTest () {
-            var a = new TestClass
-            {
+            var a = new TestClass {
                 ID = 123,
                 Type = EnumType.Option1,
                 IgnoredString = "Ignored string data",
                 Data = new List<StructType> ()
             };
-            var b = new StructType
-            {
+            var b = new StructType {
                 ID = 456,
                 IgnoredInt = 789,
                 StructString = "Struct string data",
@@ -79,9 +78,9 @@ namespace LeopotamGroup.Examples.SerializationTest {
             };
             a.Data.Add (b);
             Debug.Log ("Data before serialization: " + a);
-            var json = JsonSerialization.SerializeStatic (a);
+            var json = Singleton.Get<JsonSerialization> ().Serialize (a);
             Debug.Log ("json: " + json);
-            var c = JsonSerialization.DeserializeStatic<TestClass> (json);
+            var c = Singleton.Get<JsonSerialization> ().Deserialize<TestClass> (json);
             Debug.Log ("Data after deserialization: " + c);
         }
     }

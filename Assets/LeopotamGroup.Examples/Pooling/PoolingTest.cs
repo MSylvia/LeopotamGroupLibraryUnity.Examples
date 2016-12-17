@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using LeopotamGroup.Math;
+﻿using LeopotamGroup.Math;
 using LeopotamGroup.Pooling;
+using System.Collections;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.PoolingTest {
@@ -28,8 +28,10 @@ namespace LeopotamGroup.Examples.PoolingTest {
         }
 
         void OnGUI () {
-            GUILayout.Label (string.Format (
-                    "New instances will be spawned from code each {0}secs, recycled each 1secs and reused again without create new instances", SpawnDelay));
+            GUILayout.Label (
+                string.Format (
+                    "New instances will be spawned from code each {0}secs, recycled each 1secs and reused again without create new instances",
+                    SpawnDelay));
         }
     }
 }

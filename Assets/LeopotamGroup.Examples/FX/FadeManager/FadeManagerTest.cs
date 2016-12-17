@@ -13,9 +13,9 @@ namespace LeopotamGroup.Examples.EditorHelpers.FadeManagerTest {
                 if (GUILayout.Button ("Fade in/ Fade out")) {
                     _isLocked = true;
                     Singleton.Get<FadeManager> ().StartFadeTo (_targetFade, 1f, () => {
-                            _targetFade = _targetFade > 0f ? 0f : 1f;
-                            _isLocked = false;
-                        });
+                        _targetFade = _targetFade > 0f ? 0f : 1f;
+                        _isLocked = false;
+                    });
                 }
             }
         }

@@ -38,10 +38,10 @@ namespace LeopotamGroup.Examples.EventsTest {
             _bus.Subscribe<TestEvent1> (OnEvent11);
             _bus.Subscribe<TestEvent1> (OnEvent12);
             _bus.Subscribe<TestEvent1> (d => {
-                    // This callback should not be called due OnEvent2 interrupted execution flow.
-                    Debug.Log ("[EVENT1-SUBSCRIBER3] => " + d);
-                    return false;
-                });
+                // This callback should not be called due OnEvent2 interrupted execution flow.
+                Debug.Log ("[EVENT1-SUBSCRIBER3] => " + d);
+                return false;
+            });
 
             _bus.Subscribe<TestEvent2> (OnEvent21);
 
@@ -51,20 +51,19 @@ namespace LeopotamGroup.Examples.EventsTest {
 
             // test data.
             // class 1
-            var data1 = new TestEvent1
-            {
+            var data1 = new TestEvent1 {
                 IntValue = 1,
                 StringValue = "123"
             };
+
             // class 2
-            var data2 = new TestEvent2
-            {
+            var data2 = new TestEvent2 {
                 FloatValue = 123.456f,
                 ObjectValue = "String as object"
             };
+
             // struct
-            var data3 = new TestEvent3
-            {
+            var data3 = new TestEvent3 {
                 StringValue = "String inside struct"
             };
 
@@ -74,6 +73,7 @@ namespace LeopotamGroup.Examples.EventsTest {
             _bus.Publish<TestEvent2> (data2);
 
             _bus.Publish<TestEvent3> (data3);
+
             // test simple typed value
             _bus.Publish<float> (1f + 0.2345f);
         }

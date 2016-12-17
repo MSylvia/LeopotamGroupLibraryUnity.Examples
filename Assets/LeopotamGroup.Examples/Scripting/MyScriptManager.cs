@@ -5,6 +5,7 @@ namespace LeopotamGroup.Examples.ScriptingTest {
     class MyScriptManager : ScriptManagerBase<MyScriptManager> {
         protected override void OnAttachHostFunctions (ScriptVM vm) {
             base.OnAttachHostFunctions (vm);
+
             // Registering our custom methods for access from scripts.
             vm.RegisterHostFunction ("test_sqrt", OnSqrt);
             vm.RegisterHostFunction ("test_echo", OnTest);

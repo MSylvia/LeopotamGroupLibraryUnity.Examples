@@ -1,6 +1,6 @@
 ﻿using LeopotamGroup.Localization;
-using UnityEngine;
 using UnityEngine.Scripting;
+using UnityEngine;
 
 namespace LeopotamGroup.Examples.LocalizationTest {
     public class LocalizationTest : MonoBehaviour {
@@ -8,10 +8,10 @@ namespace LeopotamGroup.Examples.LocalizationTest {
 
         void OnGUI () {
             GUILayout.Label ("You can create localization file for all supported languages,\n" +
-            "name it 'Localization.csv' and place at 'Resources' folder.\n" +
-            "Good decision - use 'google docs' or 'office excel' with csv export.\n\n" +
-            "Default language is 'English', user choice will be saved to user prefs.");
-            foreach (var item in new [] {
+                             "name it 'Localization.csv' and place at 'Resources' folder.\n" +
+                             "Good decision - use 'google docs' or 'office excel' with csv export.\n\n" +
+                             "Default language is 'English', user choice will be saved to user prefs.");
+            foreach (var item in new[] {
                 "English",
                 "Russian",
                 "German",
@@ -27,7 +27,7 @@ namespace LeopotamGroup.Examples.LocalizationTest {
         }
 
         [Preserve]
-        void OnLocalize() {
+        void OnLocalize () {
             Debug.Log ("Language changed to " + Localizer.Language);
         }
     }

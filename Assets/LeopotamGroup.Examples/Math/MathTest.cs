@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using LeopotamGroup.Math;
+﻿using LeopotamGroup.Math;
+using System.Collections;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.MathTest {
@@ -125,9 +125,9 @@ namespace LeopotamGroup.Examples.MathTest {
             Debug.Log (">>>>> atan2 tests >>>>>");
             const int T = 10000;
             var sw = new System.Diagnostics.Stopwatch ();
-            #pragma warning disable 0219
+#pragma warning disable 0219
             float f;
-            #pragma warning restore 0219
+#pragma warning restore 0219
             var sy = 1.234f;
             var sx = 2.345f;
 
@@ -154,7 +154,7 @@ namespace LeopotamGroup.Examples.MathTest {
                 sy = Rng.GetFloatStatic () * MathFast.PI_2;
                 sx = Rng.GetFloatStatic () * MathFast.PI_2;
                 Debug.LogFormat ("atan2({0}, {1}) error checking => {2} / {3}",
-                    sy, sx, Mathf.Atan2 (sy, sx) * MathFast.Rad2Deg, MathFast.Atan2 (sy, sx) * MathFast.Rad2Deg);
+                                 sy, sx, Mathf.Atan2 (sy, sx) * MathFast.Rad2Deg, MathFast.Atan2 (sy, sx) * MathFast.Rad2Deg);
             }
         }
     }

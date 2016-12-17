@@ -17,68 +17,69 @@ namespace LeopotamGroup.Examples.EventsTest {
 
             // BehaviourTreeSequence test.
             bt.GetRootNode ()
-                .Then (bt, OnNode1)
-                .Then (bt, OnNode2)
-                .Then (bt, t => {
-                    Debug.Log ("lambda node - ok");
-                    return BehaviourTreeResult.Success;
-                })
+            .Then (bt, OnNode1)
+            .Then (bt, OnNode2)
+            .Then (bt, t => {
+                Debug.Log ("lambda node - ok");
+                return BehaviourTreeResult.Success;
+            })
+
             // Nested BehaviourTreeSequence test.
-                .Sequence ().Then (bt, t => {
-                    Debug.Log ("internal_sequence1 - ok");
-                    return BehaviourTreeResult.Success;
-                })
-                .Then (bt, t => {
-                    Debug.Log ("internal_sequence2 - ok");
-                    return BehaviourTreeResult.Success;
-                });
-            
+            .Sequence ().Then (bt, t => {
+                Debug.Log ("internal_sequence1 - ok");
+                return BehaviourTreeResult.Success;
+            })
+            .Then (bt, t => {
+                Debug.Log ("internal_sequence2 - ok");
+                return BehaviourTreeResult.Success;
+            });
+
             // BehaviourTreeParallel test.
             bt.GetRootNode ()
-                .Parallel ()
-                .Then (bt, t => {
-                    Debug.Log ("parallel_node1 - ok");
-                    return BehaviourTreeResult.Success;
-                })
-                .Then (bt, t => {
-                    _pending2++;
-                    if (_pending2 < 2) {
-                        Debug.Log ("parallel_node2 - pending");
-                        return BehaviourTreeResult.Pending;
-                    }
-                    Debug.Log ("parallel_node2 - ok");
-                    return BehaviourTreeResult.Success;
-                })
+            .Parallel ()
+            .Then (bt, t => {
+                Debug.Log ("parallel_node1 - ok");
+                return BehaviourTreeResult.Success;
+            })
+            .Then (bt, t => {
+                _pending2++;
+                if (_pending2 < 2) {
+                    Debug.Log ("parallel_node2 - pending");
+                    return BehaviourTreeResult.Pending;
+                }
+                Debug.Log ("parallel_node2 - ok");
+                return BehaviourTreeResult.Success;
+            })
 
             // BehaviourTreeCondition test.
-                .When (bt, t => {
-                    _pending3++;
-                    return _pending3 >= 2 ? BehaviourTreeResult.Success : BehaviourTreeResult.Fail;
-                })
-                .Then (bt, t => {
-                    Debug.Log ("wow, pending counter >= 2!");
-                    return BehaviourTreeResult.Success;
-                });
+            .When (bt, t => {
+                _pending3++;
+                return _pending3 >= 2 ? BehaviourTreeResult.Success : BehaviourTreeResult.Fail;
+            })
+            .Then (bt, t => {
+                Debug.Log ("wow, pending counter >= 2!");
+                return BehaviourTreeResult.Success;
+            });
 
             // BehaviourTreeSelector test.
             bt.GetRootNode ()
             .Select ()
-                .Then (bt, t => {
-                    Debug.Log ("will be processed");
-                    return BehaviourTreeResult.Fail;
-                })
-                .Then (bt, t => {
-                    Debug.Log ("will be processed too");
-                    return BehaviourTreeResult.Fail;
-                })
-                .Then (bt, t => {
-                    Debug.Log ("will be processed and stopped on it");
-                    return BehaviourTreeResult.Success;
-                })
-                .Then (bt, t => {
-                    Debug.Log ("will not be processed because previous node returned positive result");
-                    return BehaviourTreeResult.Fail;
-                });
+            .Then (bt, t => {
+                Debug.Log ("will be processed");
+                return BehaviourTreeResult.Fail;
+            })
+            .Then (bt, t => {
+                Debug.Log ("will be processed too");
+                return BehaviourTreeResult.Fail;
+            })
+            .Then (bt, t => {
+                Debug.Log ("will be processed and stopped on it");
+                return BehaviourTreeResult.Success;
+            })
+            .Then (bt, t => {
+                Debug.Log ("will not be processed because previous node returned positive result");
+                return BehaviourTreeResult.Fail;
+            });
 
             // behaviour tree ready to process.
 

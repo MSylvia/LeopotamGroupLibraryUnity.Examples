@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using LeopotamGroup.Common;
+﻿using LeopotamGroup.Common;
+using System.Collections;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.Common.MonoBehaviourTest {
@@ -9,7 +9,7 @@ namespace LeopotamGroup.Examples.Common.MonoBehaviourTest {
 
             var sw = new System.Diagnostics.Stopwatch ();
             var T = 1000000;
-            #pragma warning disable 219
+#pragma warning disable 219
             Transform t;
 
             sw.Reset ();
@@ -28,7 +28,7 @@ namespace LeopotamGroup.Examples.Common.MonoBehaviourTest {
             sw.Stop ();
             Debug.Log (sw.ElapsedTicks + " - cached to internal field transform, access from local component");
 
-            var c = gameObject.AddComponent <StandardMonoBehaviour> ();
+            var c = gameObject.AddComponent<StandardMonoBehaviour> ();
             sw.Reset ();
             sw.Start ();
             for (int i = 0; i < T; i++) {
@@ -36,7 +36,7 @@ namespace LeopotamGroup.Examples.Common.MonoBehaviourTest {
             }
             sw.Stop ();
             Debug.Log (sw.ElapsedTicks + " - standard transform, access from external component");
-            #pragma warning restore 219
+#pragma warning restore 219
         }
     }
 }
