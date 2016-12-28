@@ -20,7 +20,7 @@ namespace LeopotamGroup.Examples.MathTest {
                 Debug.LogFormat ("Rng.GetFloat [0;1]: {0}", Singleton.Get<Rng> ().GetFloat (true));
             }
             for (var i = 0; i < 5; i++) {
-                Debug.LogFormat ("Rng.GetIntStatic [0;100): {0}", Singleton.Get<Rng> ().GetInt32 (100));
+                Debug.LogFormat ("Rng.GetIntStatic [0;100): {0}", Singleton.Get<Rng> ().GetInt (100));
             }
         }
 
