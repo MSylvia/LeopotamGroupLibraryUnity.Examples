@@ -1,4 +1,5 @@
-﻿using LeopotamGroup.Math;
+﻿using LeopotamGroup.Common;
+using LeopotamGroup.Math;
 using LeopotamGroup.Pooling;
 using System.Collections;
 using UnityEngine;
@@ -19,9 +20,9 @@ namespace LeopotamGroup.Examples.PoolingTest {
             while (true) {
                 obj = _pool.Get ();
                 obj.PoolTransform.localPosition = new Vector3 (
-                    Mathf.Lerp (-1f, 1f, Rng.GetFloatStatic ()), Mathf.Lerp (-1f, 1f, Rng.GetFloatStatic ()), 0f);
+                    Mathf.Lerp (-1f, 1f, Singleton.Get<Rng> ().GetFloat ()), Mathf.Lerp (-1f, 1f, Singleton.Get<Rng> ().GetFloat ()), 0f);
                 obj.PoolTransform.localRotation =
-                    Quaternion.Euler (new Vector3 (0f, Mathf.Lerp (-180f, 1f, Rng.GetFloatStatic ()), 0f));
+                    Quaternion.Euler (new Vector3 (0f, Mathf.Lerp (-180f, 1f, Singleton.Get<Rng> ().GetFloat ()), 0f));
                 obj.PoolTransform.gameObject.SetActive (true);
                 yield return waiter;
             }

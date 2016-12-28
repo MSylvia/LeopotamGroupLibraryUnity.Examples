@@ -1,4 +1,5 @@
-﻿using LeopotamGroup.Math;
+﻿using LeopotamGroup.Common;
+using LeopotamGroup.Math;
 using System.Collections;
 using UnityEngine;
 
@@ -16,10 +17,10 @@ namespace LeopotamGroup.Examples.MathTest {
 
         void RngTest () {
             for (var i = 0; i < 5; i++) {
-                Debug.LogFormat ("Rng.GetFloatStatic [0;1]: {0}", Rng.GetFloatStatic (true));
+                Debug.LogFormat ("Rng.GetFloat [0;1]: {0}", Singleton.Get<Rng> ().GetFloat (true));
             }
             for (var i = 0; i < 5; i++) {
-                Debug.LogFormat ("Rng.GetIntStatic [0;100): {0}", Rng.GetInt32Static (100));
+                Debug.LogFormat ("Rng.GetIntStatic [0;100): {0}", Singleton.Get<Rng> ().GetInt32 (100));
             }
         }
 
@@ -76,7 +77,7 @@ namespace LeopotamGroup.Examples.MathTest {
             Debug.LogFormat ("mathfast.sin time on {0} iterations: {1}", T, sw.ElapsedTicks);
 
             for (int i = 0; i < 10; i++) {
-                f = Rng.GetFloatStatic () * 3.1415926f * 2;
+                f = Singleton.Get<Rng> ().GetFloat () * 3.1415926f * 2;
                 Debug.LogFormat ("sin({0}) => {1} / {2}", f, Mathf.Sin (f), MathFast.Sin (f));
             }
         }
@@ -116,7 +117,7 @@ namespace LeopotamGroup.Examples.MathTest {
             Debug.LogFormat ("mathfast.cos time on {0} iterations: {1}", T, sw.ElapsedTicks);
 
             for (int i = 0; i < 10; i++) {
-                f = Rng.GetFloatStatic () * MathFast.PI_2;
+                f = Singleton.Get<Rng> ().GetFloat () * MathFast.PI_2;
                 Debug.LogFormat ("cos({0}) error checking => {1} / {2}", f, Mathf.Cos (f), MathFast.Cos (f));
             }
         }
@@ -151,8 +152,8 @@ namespace LeopotamGroup.Examples.MathTest {
             Debug.LogFormat ("mathfast.atan2 time on {0} iterations: {1}", T, sw.ElapsedTicks);
 
             for (int i = 0; i < 10; i++) {
-                sy = Rng.GetFloatStatic () * MathFast.PI_2;
-                sx = Rng.GetFloatStatic () * MathFast.PI_2;
+                sy = Singleton.Get<Rng> ().GetFloat () * MathFast.PI_2;
+                sx = Singleton.Get<Rng> ().GetFloat () * MathFast.PI_2;
                 Debug.LogFormat ("atan2({0}, {1}) error checking => {2} / {3}",
                                  sy, sx, Mathf.Atan2 (sy, sx) * MathFast.Rad2Deg, MathFast.Atan2 (sy, sx) * MathFast.Rad2Deg);
             }
