@@ -1,5 +1,5 @@
 ﻿using LeopotamGroup.Common;
-using LeopotamGroup.FX;
+using LeopotamGroup.Fx;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.EditorHelpers.FadeManagerTest {

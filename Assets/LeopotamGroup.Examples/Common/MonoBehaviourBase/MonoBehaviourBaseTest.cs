@@ -23,7 +23,7 @@ namespace LeopotamGroup.Examples.Common.MonoBehaviourTest {
             sw.Reset ();
             sw.Start ();
             for (int i = 0; i < T; i++) {
-                t = _cachedTransform;
+                t = CachedTransform;
             }
             sw.Stop ();
             Debug.Log (sw.ElapsedTicks + " - cached to internal field transform, access from local component");

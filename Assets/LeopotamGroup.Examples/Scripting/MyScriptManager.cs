@@ -2,8 +2,8 @@
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.ScriptingTest {
-    class MyScriptManager : ScriptManagerBase<MyScriptManager> {
-        protected override void OnAttachHostFunctions (ScriptVM vm) {
+    class MyScriptManager : ScriptManagerBase {
+        protected override void OnAttachHostFunctions (ScriptVm vm) {
             base.OnAttachHostFunctions (vm);
 
             // Registering our custom methods for access from scripts.
@@ -16,9 +16,9 @@ namespace LeopotamGroup.Examples.ScriptingTest {
             base.OnRuntimeError (errMsg);
         }
 
-        ScriptVar OnSqrt (ScriptVM vm) {
+        ScriptVar OnSqrt (ScriptVm vm) {
             var count = vm.GetParamsCount ();
-            var v = vm.GetParamByID (0);
+            var v = vm.GetParamById (0);
             if (count < 1 || !v.IsNumber) {
                 vm.SetRuntimeError ("(nValue) parameter required");
                 return new ScriptVar ();
@@ -26,13 +26,13 @@ namespace LeopotamGroup.Examples.ScriptingTest {
             return new ScriptVar (Mathf.Sqrt (v.AsNumber));
         }
 
-        ScriptVar OnTest (ScriptVM vm) {
+        ScriptVar OnTest (ScriptVm vm) {
             var count = vm.GetParamsCount ();
             if (count != 1) {
                 vm.SetRuntimeError ("test_echo function requires only one parameter");
                 return new ScriptVar ();
             }
-            var v = vm.GetParamByID (0);
+            var v = vm.GetParamById (0);
             Debug.Log ("OnTest callback called with parameter: " + v.AsString);
             return v;
         }

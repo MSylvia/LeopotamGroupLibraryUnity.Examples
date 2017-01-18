@@ -1,13 +1,15 @@
 ﻿using LeopotamGroup.Common;
-using LeopotamGroup.FX;
+using LeopotamGroup.Fx;
 using UnityEngine;
 
 namespace LeopotamGroup.Examples.FX.SoundManagerTest {
     public class SoundManagerTest : MonoBehaviour {
-        public AudioClip FXClip = null;
+        [SerializeField]
+        AudioClip _fxClip = null;
 
         const string MusicName = "Music/Forest";
 
+        // ReSharper disable once InconsistentNaming
         void OnGUI () {
             var sm = Singleton.Get<SoundManager> ();
             if (GUILayout.Button ("Turn on music")) {
@@ -16,11 +18,11 @@ namespace LeopotamGroup.Examples.FX.SoundManagerTest {
             if (GUILayout.Button ("Turn off music")) {
                 sm.StopMusic ();
             }
-            if (FXClip != null && GUILayout.Button ("Play FX at channel 1 without interrupt")) {
-                sm.PlayFX (FXClip);
+            if (_fxClip != null && GUILayout.Button ("Play FX at channel 1 without interrupt")) {
+                sm.PlayFx (_fxClip);
             }
-            if (FXClip != null && GUILayout.Button ("Play FX at channel 1 with interrupt")) {
-                sm.PlayFX (FXClip, SoundFXChannel.First, true);
+            if (_fxClip != null && GUILayout.Button ("Play FX at channel 1 with interrupt")) {
+                sm.PlayFx (_fxClip, SoundFxChannel.First, true);
             }
         }
     }
